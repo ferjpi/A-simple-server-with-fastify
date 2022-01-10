@@ -2,6 +2,7 @@
 
 const { test } = require('tap')
 const { build } = require('../helper')
+const data = require('../../data')
 
 test('default root route', async (t) => {
   const app = build(t)
@@ -9,7 +10,7 @@ test('default root route', async (t) => {
   const res = await app.inject({
     url: '/'
   })
-  t.same(JSON.parse(res.payload), { root: true })
+  t.same(JSON.parse(res.payload), { data })
 })
 
 // inject callback style:
